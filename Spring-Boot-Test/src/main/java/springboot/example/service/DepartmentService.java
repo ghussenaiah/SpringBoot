@@ -18,4 +18,7 @@ public interface DepartmentService {
 
 	// Delete operation
 	void deleteDepartmentById(Long departmentId);
+
+	List<Department> listDepertmentOverDepartmentName(String name);
+
 }

@@ -25,8 +25,13 @@ public class DepartmentServiceImpl implements DepartmentService {
     @Override 
     public List<Department> fetchDepartmentList()
     {
-        return (List<Department>)
-            departmentRepository.findAll();
+        return (List<Department>) departmentRepository.findAll();
+    }
+    
+    @Override 
+    public List<Department> listDepertmentOverDepartmentName(String name)
+    {
+        return (List<Department>) departmentRepository.listDepertmentOverDepartmentName(name);
     }
   
     // Update operation

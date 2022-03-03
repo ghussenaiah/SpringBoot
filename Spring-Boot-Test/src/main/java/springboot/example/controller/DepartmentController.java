@@ -30,6 +30,12 @@ public class DepartmentController {
 	public List<Department> fetchDepartmentList() {
 		return departmentService.fetchDepartmentList();
 	}
+	
+	@GetMapping("/departmentsbyname/{depname}")
+	public List<Department> fetchDepartmentList(@PathVariable("depname") String depname) {
+		return departmentService.listDepertmentOverDepartmentName(depname);
+	}
+
 
 	// Update operation
 	@PutMapping("/departments/{id}")

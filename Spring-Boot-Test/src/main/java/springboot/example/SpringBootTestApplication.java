@@ -26,38 +26,30 @@ public class SpringBootTestApplication implements CommandLineRunner {
 	
 
 	public static void main(String[] args) {
-		
-		
-		 SpringApplication.run(SpringBootTestApplication.class, args);
-			
-			  String currentDir = System.getProperty("user.dir");
-			  System.out.println(currentDir); logger.info("this is a info message");
-			  logger.warn("this is a warn message");
-			  logger.error("this is a error message");
-			  
-			  System.out.println(SpringBootTestApplication.class.getClassLoader().
-			  getResource("logging.properties"));
-			 
-		
-	      
-	      
-	   
-	
-	
 
-}
+		SpringApplication.run(SpringBootTestApplication.class, args);
 
-		@Override
-		public void run(String... args) throws Exception {
-		
-			/*
-			 * Department dep = context.getBean(Department.class); System.out.println(dep);
-			 * dep.setDepartmentName("cse"); System.out.println(dep);
-			 * 
-			 * Department dep1 = context.getBean(Department.class);
-			 * System.out.println(dep1);
-			 */
-		
-		}
+		String currentDir = System.getProperty("user.dir");
+		System.out.println(currentDir);
+		logger.info("this is a info message");
+		logger.warn("this is a warn message");
+		logger.error("this is a error message");
+
+		System.out.println(SpringBootTestApplication.class.getClassLoader().getResource("logging.properties"));
+
+	}
+
+	@Override
+	public void run(String... args) throws Exception {
+
+		/*
+		 * Department dep = context.getBean(Department.class); System.out.println(dep);
+		 * dep.setDepartmentName("cse"); System.out.println(dep);
+		 * 
+		 * Department dep1 = context.getBean(Department.class);
+		 * System.out.println(dep1);
+		 */
+
+	}
 }
 
