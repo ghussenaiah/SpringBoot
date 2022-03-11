@@ -2,6 +2,8 @@ package springboot.example.repository;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 //Java Program to Illustrate DepartmentRepository File
 
 //Importing package module to code fragment
@@ -18,7 +20,7 @@ import springboot.example.model.Department;
 public interface DepartmentRepository extends JpaRepository<Department, Long> {
 
 	
-
+	// @Transactional(readOnly=false)
 	@Query("SELECT d FROM Department d WHERE d.departmentName = :departmentName")
 	public List<Department> listDepertmentOverDepartmentName(@Param("departmentName") String name);
 }

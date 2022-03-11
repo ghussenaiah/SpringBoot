@@ -6,10 +6,15 @@ import javax.persistence.Id;
 
 import javax.persistence.Table;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.Entity;
 
 @Entity
 @Table(name = "ARTICLE")
+@Getter
+@Setter
 public class Article {
 
 	@Id

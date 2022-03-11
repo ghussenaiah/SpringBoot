@@ -45,7 +45,8 @@ public class SpringBootTestApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 
 		/*
-		 * Department dep = context.getBean(Department.class); System.out.println(dep);
+		 * Department dep = context.getBean(Department.class); 
+		 * System.out.println(dep);
 		 * dep.setDepartmentName("cse"); System.out.println(dep);
 		 * 
 		 * Department dep1 = context.getBean(Department.class);

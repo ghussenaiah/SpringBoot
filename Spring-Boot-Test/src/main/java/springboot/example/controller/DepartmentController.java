@@ -2,6 +2,10 @@ package springboot.example.controller;
 
 import java.io.IOException;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 //Importing required classes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,7 +25,8 @@ public class DepartmentController {
 
 	// Save operation// SpringBootTest
 	@PostMapping("/departments")
-	public Department saveDepartment(@RequestBody Department department) {
+	public Department saveDepartment(@RequestBody Department department,HttpServletRequest request, HttpServletResponse response) {
+		System.out.println("remote address"+request.getRemoteHost());
 		return departmentService.saveDepartment(department);
 	}
 
