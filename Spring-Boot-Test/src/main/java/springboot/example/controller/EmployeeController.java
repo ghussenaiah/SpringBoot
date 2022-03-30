@@ -1,5 +1,6 @@
 package springboot.example.controller;
 
+import java.util.List;
 import java.util.Map;
 
 
@@ -42,9 +43,9 @@ public class EmployeeController {
     // Get all employees.
     // Url - http://localhost:10091/api/redis/employee/getall
     @GetMapping("/getall")
-    public Map<String, Employee> findAll() {
+    public List<Employee> findAll() {
         LOG.info("Fetching all employees from the redis.");
-        final Map<String, Employee> employeeMap = service.findAll();
+        final List<Employee> employeeMap = service.findAll();
         // Todo - If developers like they can sort the map (optional).
         return employeeMap;
     }
@@ -60,7 +61,7 @@ public class EmployeeController {
     // Delete employee by id.
     // Url - http://localhost:10091/api/redis/employee/delete/<employee_id>
     @DeleteMapping("/delete/{id}")
-    public Map<String, Employee> delete(@PathVariable("id") final String id) {
+    public List<Employee> delete(@PathVariable("id") final String id) {
         LOG.info("Deleting employee with id= " + id);
         // Deleting the employee.
         service.delete(id);
@@ -68,3 +69,21 @@ public class EmployeeController {
         return findAll();
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

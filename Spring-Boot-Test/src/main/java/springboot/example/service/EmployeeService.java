@@ -1,5 +1,6 @@
 package springboot.example.service;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.PostConstruct;
@@ -14,10 +15,15 @@ import springboot.example.model.Employee;
 import springboot.example.repository.Employeerepo;
  
 @Service
-public class EmployeeService implements Employeerepo{
+public class EmployeeService {
  
     private final String EMPLOYEE_CACHE = "EMPLOYEE";
- 
+  
+    
+    @Autowired
+    Employeerepo emprepo;
+    
+    
     @Autowired
     RedisTemplate<String, Object> redisTemplate;
     private HashOperations<String, String, Employee> hashOperations;
@@ -30,26 +36,24 @@ public class EmployeeService implements Employeerepo{
     }
  
     // Save operation.
-    @Override
-    public void save(final Employee employee) {
+    public  void save(final Employee employee) {
         hashOperations.put(EMPLOYEE_CACHE, employee.getId(), employee);
+        emprepo.save(employee);
         System.out.println(hashOperations.get(EMPLOYEE_CACHE, employee.getId()));
     }
  
     // Find by employee id operation.
-    @Override
     public Employee findById(final String id) {
         return (Employee) hashOperations.get(EMPLOYEE_CACHE, id);
     }
  
     // Find all employees' operation.
-    @Override
-    public Map<String, Employee> findAll() {
-        return hashOperations.entries(EMPLOYEE_CACHE);
+    public List<Employee> findAll() {
+    	return (List<Employee>) emprepo.findAll();
+        // return hashOperations.entries(EMPLOYEE_CACHE);
     }
  
     // Delete employee by id operation.
-    @Override
     public void delete(String id) {
         hashOperations.delete(EMPLOYEE_CACHE, id);
     }

@@ -31,13 +31,12 @@ public class SpringBootTestApplication implements CommandLineRunner {
 
 		SpringApplication.run(SpringBootTestApplication.class, args);
 
-		String currentDir = System.getProperty("user.dir");
-		System.out.println(currentDir);
+	
 		logger.info("this is a info message");
 		logger.warn("this is a warn message");
 		logger.error("this is a error message");
 
-		System.out.println(SpringBootTestApplication.class.getClassLoader().getResource("logging.properties"));
+		// System.out.println(SpringBootTestApplication.class.getClassLoader().getResource("logging.properties"));
 
 	}
 

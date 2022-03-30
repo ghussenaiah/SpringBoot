@@ -2,14 +2,18 @@ package springboot.example.model;
 
 import java.io.Serializable;
 
+import org.springframework.data.redis.core.RedisHash;
+import org.springframework.data.redis.core.index.Indexed;
 import org.springframework.stereotype.Component;
  
 // Employee model class has basic employee-related attributes.
-@Component
+//@Component
+@RedisHash("Employee")
 public class Employee implements Serializable {
  
     private static final long serialVersionUID = 1L;
  
+    @Indexed
     private String id;
     private String name;
     private int age;

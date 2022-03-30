@@ -15,7 +15,13 @@
 	<description>Practice project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
+		 <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		 <sonar.host.url> http://localhost:9000/ </sonar.host.url>
+		 <sonar.exclusions></sonar.exclusions>
+		
+		
 	</properties>
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -38,6 +44,14 @@
       <version>2.2.0.RELEASE</version>
       </dependency>
      
+
+     
+     
+     <dependency>
+	<groupId>redis.clients</groupId>
+	<artifactId>jedis</artifactId>
+	<version>${version}</version>
+</dependency>
      
      <dependency>
 <groupId>org.apache.commons</groupId>
